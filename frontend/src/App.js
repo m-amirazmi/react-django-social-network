@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Redirect } from 'react-router-dom'
+import { PublicRoute } from './components/routes/PublicRoute'
+import { PrivateRoute } from './components/routes/PrivateRoute'
+import { routes } from './utils/routes'
 
-function App() {
+export const App = () => {
+
+  const renderRoutes = routes.map((route) => {
+    if (!route.isProtected) return <PublicRoute restricted={route.restricted} component={route.component} path={route.path} exact />
+    if (route.isProtected) return <PrivateRoute component={route.component} path={route.path} exact />
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      {renderRoutes}
+      <Redirect from="/" />
+    </BrowserRouter>
+  )
 }
-
-export default App;
