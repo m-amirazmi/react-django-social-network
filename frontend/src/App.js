@@ -13,7 +13,6 @@ export const App = () => {
   return (
     <BrowserRouter>
       {renderRoutes}
-      <Redirect from="/" />
     </BrowserRouter>
   )
 }

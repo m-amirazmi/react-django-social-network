@@ -1,0 +1,35 @@
+.container {
+    max-width: 450px;
+}
+
+.container h4 {
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    cursor: pointer;
+    padding: 5px 20px;
+}
+
+.item:hover {
+    background-color: #ccc;
+}
+
+.form {
+    margin-bottom: 24px;
+}
+
+.form button {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.form form {
+    margin-bottom: 24px;
+}
