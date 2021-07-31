@@ -6,7 +6,7 @@ export const Main = (props) => {
 
     const renderSidebar = () => {
         return (
-            <Col md={3}>
+            <Col md={2}>
                 <Sidebar />
             </Col>
         )
@@ -14,7 +14,7 @@ export const Main = (props) => {
 
     const renderContent = () => {
         return (
-            <Col md={6}>
+            <Col md={7}>
                 {props.content()}
             </Col>
         )
