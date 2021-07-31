@@ -1,11 +1,24 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Auth } from '../layouts/Auth'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../contexts/AuthContext'
+import { useState } from 'react'
 
 export const Login = () => {
 
+    const [input, setInput] = useState({})
+
     const { t } = useTranslation()
+    const { login } = useAuth()
+    const { push } = useHistory()
+
+    const handleInput = ({ currentTarget }) => setInput({ ...input, [currentTarget.id]: currentTarget.value })
+
+    const handleLogin = () => {
+        login(input)
+        push('/')
+    }
 
     const renderTitle = () => {
         return (
@@ -18,11 +31,11 @@ export const Login = () => {
             <Form>
                 <FormGroup className="mb-3">
                     <Label for="email" className="text-capitalize">{t('auth.email')}</Label>
-                    <Input type="email" name="email" id="email" placeholder={t('auth.insert_your_registered_email')} />
+                    <Input type="email" name="email" id="email" placeholder={t('auth.insert_your_registered_email')} onChange={handleInput} />
                 </FormGroup>
                 <FormGroup className="mb-3">
                     <Label for="password" className="text-capitalize">{t('auth.password')}</Label>
-                    <Input type="password" name="password" id="password" placeholder={t('auth.insert_your_registered_password')} />
+                    <Input type="password" name="password" id="password" placeholder={t('auth.insert_your_registered_password')} onChange={handleInput} />
                 </FormGroup>
             </Form>
         )
@@ -30,7 +43,7 @@ export const Login = () => {
 
     const renderButton = () => {
         return (
-            <Button outline color="primary" className="text-uppercase" block>{t('auth.login')}</Button>
+            <Button outline color="primary" className="text-uppercase" block onClick={handleLogin}>{t('auth.login')}</Button>
         )
     }
 

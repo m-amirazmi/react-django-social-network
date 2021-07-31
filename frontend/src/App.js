@@ -2,6 +2,7 @@ import { BrowserRouter, Redirect } from 'react-router-dom'
 import { PublicRoute } from './components/routes/PublicRoute'
 import { PrivateRoute } from './components/routes/PrivateRoute'
 import { routes } from './utils/routes'
+import { AuthProvider } from './contexts/AuthContext'
 
 export const App = () => {
 
@@ -11,8 +12,10 @@ export const App = () => {
   })
 
   return (
-    <BrowserRouter>
-      {renderRoutes}
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        {renderRoutes}
+      </BrowserRouter>
+    </AuthProvider>
   )
 }

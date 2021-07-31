@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from posts.models import Person, Post, Comment
 from posts.serializers import PersonSerializer, PostSerializer, CommentSerializer
 
@@ -9,6 +9,7 @@ class PersonList(generics.ListCreateAPIView):
 
 
 class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
 
