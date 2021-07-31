@@ -8,7 +8,7 @@ export const routes = [
 
     // GENERAL PAGES
     {
-        path: '/',
+        path: '/home',
         name: 'Home',
         component: Home,
         showOnNav: true,

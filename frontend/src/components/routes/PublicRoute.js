@@ -6,6 +6,6 @@ export const PublicRoute = ({ component: Component, restricted, ...rest }) => {
     return (
         // restricted = false meaning public route
         // restricted = true meaning restricted route
-        <Route {...rest} render={(props) => isLogin() && restricted ? <Redirect to="/" /> : <Component {...props} />} />
+        <Route {...rest} render={(props) => isLogin() && restricted ? <Redirect to="/home" /> : <Component {...props} />} />
     );
 };

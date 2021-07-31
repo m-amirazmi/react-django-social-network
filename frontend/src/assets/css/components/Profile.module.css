@@ -1,0 +1,13 @@
+.container {
+    min-height: 100vh;
+}
+
+.pageName,
+.addPost {
+    padding: 16px;
+}
+
+
+.avatar {
+    margin-right: 16px;
+}
