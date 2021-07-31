@@ -1,0 +1,48 @@
+.name {
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0px 4px;
+    margin-left: 16px;
+}
+
+.name a {
+    text-decoration: none;
+}
+
+.username {
+    margin: 0px 4px;
+    color: #aaa;
+    margin-left: 16px;
+}
+
+.postDate,
+.postTime {
+    margin: 0px 4px;
+    color: #aaa;
+}
+
+.icon {
+    color: #aaa;
+    cursor: pointer;
+}
+
+.comment {
+    margin-left: 64px;
+    margin-top: 12px;
+    background: #edf7f7 !important;
+}
+
+.commentName {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.commentName a {
+    text-decoration: none;
+}
+
+.commentUsername {
+    margin: 0px 4px;
+    color: #aaa;
+    font-weight: normal;
+}
